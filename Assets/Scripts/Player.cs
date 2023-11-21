@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     Rigidbody2D _playerRb;
+    Animator _playerAnimator;
 
     Vector2 mov;
 
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         _playerRb = GetComponent<Rigidbody2D>();
+        _playerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,9 @@ public class Player : MonoBehaviour
     {
         //_playerRb.velocity = new Vector2(mov.x * velocidade, mov.y * velocidade);
         _playerRb.MovePosition(_playerRb.position + mov * velocidade * Time.fixedDeltaTime);
+        _playerAnimator.SetFloat("Horizontal", mov.x);
+        _playerAnimator.SetFloat("Vertical", mov.y);
+        _playerAnimator.SetFloat("Speed", mov.sqrMagnitude);
     }
     
     void OnMove(InputValue input)
