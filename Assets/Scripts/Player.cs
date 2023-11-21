@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     Animator _playerAnimator;
 
     Vector2 mov;
+    Vector2 lastMov;
 
     [SerializeField] float velocidade = 5f;
 
@@ -25,17 +26,35 @@ public class Player : MonoBehaviour
         Movement();
     }
 
+
     void Movement()
     {
-        //_playerRb.velocity = new Vector2(mov.x * velocidade, mov.y * velocidade);
-        _playerRb.MovePosition(_playerRb.position + mov * velocidade * Time.fixedDeltaTime);
+        _playerRb.velocity = new Vector2(mov.x * velocidade, mov.y * velocidade);
+
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+
+        if ((moveX == 0 && moveY == 0) && (mov.x != 0 || mov.y != 0))
+        {
+            lastMov = mov;
+        }
+
+        mov.x = Input.GetAxisRaw("Horizontal");
+        mov.y = Input.GetAxisRaw("Vertical");
+
+        mov.Normalize();
+
         _playerAnimator.SetFloat("Horizontal", mov.x);
         _playerAnimator.SetFloat("Vertical", mov.y);
-        _playerAnimator.SetFloat("Speed", mov.sqrMagnitude);
+        _playerAnimator.SetFloat("LastHorizontal", lastMov.x);
+        _playerAnimator.SetFloat("LastVertical", lastMov.y);
+        _playerAnimator.SetFloat("Speed", mov.magnitude);
+
     }
     
-    void OnMove(InputValue input)
+/*    void OnMove(InputValue input)
     {
         mov = input.Get<Vector2>();
-    }
+    }*/
 }
