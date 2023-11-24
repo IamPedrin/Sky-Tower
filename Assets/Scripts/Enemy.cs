@@ -26,10 +26,16 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool isRunning = Mathf.Abs(rb.velocity.x) > Mathf.Epsilon;
         if (target)
         {
             Vector3 dir = (target.position - transform.position).normalized;
             movDir = dir;
+        }
+
+        if (isRunning)
+        {
+            FlipSprite();
         }
     }
 
