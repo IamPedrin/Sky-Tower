@@ -16,6 +16,12 @@ GameObject:
   - component: {fileID: 7477614826510201661}
   - component: {fileID: 5817993472931843305}
   - component: {fileID: 3513399924806495526}
+  - component: {fileID: 4161403781281809989}
+  - component: {fileID: 1584419557066025633}
+  - component: {fileID: 8202199052401330117}
+  - component: {fileID: 5551302732559565902}
+  - component: {fileID: 531335357675438832}
+  - component: {fileID: 5678002940977381428}
   m_Layer: 8
   m_Name: Esqueleto
   m_TagString: Enemy

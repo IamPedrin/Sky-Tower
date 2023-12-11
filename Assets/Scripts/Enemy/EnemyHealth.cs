@@ -19,23 +19,10 @@ public class EnemyHealth : MonoBehaviour
         // sprite = GetComponent<SpriteRenderer>();
     }
 
-    // public void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     Enemy enemy = collision.collider.GetComponent<Enemy>();
-    //     if (enemy)
-    //     {
-    //         print("Collisao");
-    //         TakeDamage(enemy.damage);
-    //     }
-    // }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        // healthUI.UpdateHearts(currentHealth);
-
-        // StartCoroutine(flashRed());
-
         if(currentHealth <= 0)
         {
             Destroy();
@@ -46,6 +33,7 @@ public class EnemyHealth : MonoBehaviour
     public void Destroy(){
         //GameObject poofClone = Instantiate(poofVFXPrefab,transform.position,Quaternion.identity);
         //Destroy(poofClone,1.5f);
+        gameObject.GetComponent<Enemy>().Pontuacao();
         Destroy(gameObject);
     }
 
