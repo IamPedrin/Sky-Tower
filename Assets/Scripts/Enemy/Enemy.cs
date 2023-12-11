@@ -67,31 +67,31 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider){
         if(collider.gameObject.CompareTag("Sword")){
             print("ARROBA PONTO COM");
-            
-            TomarDano();
             gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
-
-            // ponto.AtualizaPontuacao();
-            // Destroy();
         }
     }
 
-    public void TomarDano(){
-        StartCoroutine(IEEnemyDMG());
+    public void Pontuacao(){
+        ponto.AtualizaPontuacao();
     }
 
-    IEnumerator IEEnemyDMG(){
-        print("CHAMOU A COROTINA");
+
+    // public void TomarDano(){
+    //     StartCoroutine(IEEnemyDMG());
+    // }
+
+    // IEnumerator IEEnemyDMG(){
+    //     print("CHAMOU A COROTINA");
 
 
-        isTakingDamage = true;
+    //     isTakingDamage = true;
         
-        // rb.velocity = new Vector3(-transform.localScale.x*6, 13.0f, 1);
-        rb.velocity = new Vector3(-transform.localScale.x*6, 100, 1);
-        yield return new WaitForSecondsRealtime(10.1f);
+    //     // rb.velocity = new Vector3(-transform.localScale.x*6, 13.0f, 1);
+    //     rb.velocity = new Vector3(-transform.localScale.x*6, 100, 1);
+    //     yield return new WaitForSecondsRealtime(10.1f);
 
-        isTakingDamage = false;
-    }
+    //     isTakingDamage = false;
+    // }
 
     // public void Destroy(){
     //     //GameObject poofClone = Instantiate(poofVFXPrefab,transform.position,Quaternion.identity);
