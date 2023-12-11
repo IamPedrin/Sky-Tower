@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "f88aef52-61ba-4225-83ea-0fa75478cce3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -291,6 +300,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PointerPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dd7bf6fc-bc44-4daa-845c-a32dd46fc53a",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
