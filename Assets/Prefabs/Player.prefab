@@ -288,6 +288,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 562258447584111441}
     m_Modifications:
+    - target: {fileID: 2642091094686877109, guid: e30690f234713f943aa7cc4a03e7cca9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3249678874516625959, guid: e30690f234713f943aa7cc4a03e7cca9, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -343,6 +347,10 @@ PrefabInstance:
     - target: {fileID: 8273148994892284322, guid: e30690f234713f943aa7cc4a03e7cca9, type: 3}
       propertyPath: m_Name
       value: sword_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8273148994892284322, guid: e30690f234713f943aa7cc4a03e7cca9, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

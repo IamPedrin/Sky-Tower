@@ -9,11 +9,14 @@ public class Enemy : MonoBehaviour
     Transform target;
     Vector2 movDir;
 
+    PointsUI ponto;
+
     public int damage = 1;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        ponto = FindObjectOfType<PointsUI>();
     }
 
 
@@ -52,5 +55,24 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.CompareTag("Player")){
+            //Inicia o processo de dar dano no player
+            //collision.gameObject.GetComponent<Player>().TomarDano();
+            print("TOMOU DANO");
+        }
+    }
+    void OnTriggerEnter2D(Collider2D collider){
+        if(collider.gameObject.CompareTag("Sword")){
+            print("ARROBA PONTO COM");
+            ponto.AtualizaPontuacao();
+            Destroy();
+        }
+    }
+    public void Destroy(){
+        //GameObject poofClone = Instantiate(poofVFXPrefab,transform.position,Quaternion.identity);
+        //Destroy(poofClone,1.5f);
+        Destroy(gameObject);
+    }
 
 }
