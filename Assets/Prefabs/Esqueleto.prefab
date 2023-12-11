@@ -14,9 +14,11 @@ GameObject:
   - component: {fileID: 9202974095489664578}
   - component: {fileID: 1915962012747221337}
   - component: {fileID: 7477614826510201661}
+  - component: {fileID: 5817993472931843305}
+  - component: {fileID: 3513399924806495526}
   m_Layer: 8
   m_Name: Esqueleto
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +115,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &9202974095489664578
 CapsuleCollider2D:
@@ -184,3 +186,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 2
+  damage: 1
+--- !u!114 &5817993472931843305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5838668846535378033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a5d472dbec41a4eb4b1d4335cce823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 0
+--- !u!114 &3513399924806495526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5838668846535378033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1610cdf3d3ac13d4794f7e0ab68d1f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 5
