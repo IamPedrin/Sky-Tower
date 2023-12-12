@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+
 
     AudioSource sliceAudioSource;
 
@@ -114,6 +116,23 @@ public class Player : MonoBehaviour
             print("ATACOU");
 
         }
+    }
+
+    // public void GameOver(){
+    //     GameOver.Setup();
+    // }
+
+    public void InitPlayerDeath(){
+        StartCoroutine(PlayerDeath());
+    }
+
+    IEnumerator PlayerDeath(){
+        yield return new WaitForSecondsRealtime(0.3f);
+        // isDead = true;
+        GetComponent<PlayerInput>().enabled = false;
+        _playerRb.velocity = Vector2.zero;
+        Physics2D.IgnoreLayerCollision(7,9,true);
+        SceneManager.LoadScene("GameOver");
     }
 
 }

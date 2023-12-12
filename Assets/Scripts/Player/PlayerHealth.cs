@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+
+    public GameOver gameOver; 
+
     [SerializeField] public int maxHealth = 3;
     public int currentHealth;
 
@@ -36,7 +39,8 @@ public class PlayerHealth : MonoBehaviour
 
         if(currentHealth <= 0)
         {
-            //Destroy(gameObject);
+            // InitPlayerDeath();
+            gameObject.GetComponent<Player>().InitPlayerDeath();
         }
     }
 
@@ -51,11 +55,24 @@ public class PlayerHealth : MonoBehaviour
 
     public void GainHealth()
     {
-        // Verifica se a vida atual não ultrapassa o máximo antes de ganhar vida
+        // Verifica se a vida atual nï¿½o ultrapassa o mï¿½ximo antes de ganhar vida
         if (currentHealth < maxHealth)
         {
             currentHealth++;
             healthUI.UpdateHearts(currentHealth);
         }
     }
+
+    // public void InitPlayerDeath(){
+    //     StartCoroutine(InitPlayerDeath());
+    // }
+
+    // IEnumerator PlayerDeath(){
+    //     yield return new WaitForSecondRealTime(0.3f);
+    //     isDead = true;
+    //     GetComponent<PlayerInput>().enabled = false;
+    //     _playerRb.velocity = Vector2.zero;
+    //     Physics2D.IgnoreLayerCollision(7,9,true);
+    //     SceneManager.LoadScene("GameOver");
+    // }
 }
