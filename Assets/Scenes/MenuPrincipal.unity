@@ -1383,6 +1383,7 @@ MonoBehaviour:
   sceneMusic:
   - {fileID: 8300000, guid: 8380ee6af3b6cd54d99eb84e24967472, type: 3}
   - {fileID: 8300000, guid: a2cf2ca24b3466a41a78ee2205677ffd, type: 3}
+  - {fileID: 8300000, guid: 85db23300face1246bac7d68cf1606bc, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
