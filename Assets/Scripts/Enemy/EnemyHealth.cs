@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] public int maxHealth = 3;
-    public int currentHealth;
+    [SerializeField] public int maxHealth = 2;
+    private int currentHealth;
 
-
-    // public HealthUI healthUI;
-    // private SpriteRenderer sprite;
-
-    // Start is called before the first frame update
+    [Header("Loot")]
+    public List<LootItem> lootTable = new List<LootItem>();
     void Start()
     {
         currentHealth = maxHealth;
@@ -29,12 +26,27 @@ public class EnemyHealth : MonoBehaviour
 
 
     public void Destroy(){
-        //GameObject poofClone = Instantiate(poofVFXPrefab,transform.position,Quaternion.identity);
-        //Destroy(poofClone,1.5f);
         gameObject.GetComponent<Enemy>().Pontuacao();
         Destroy(gameObject);
+        foreach(LootItem lootItem in lootTable)
+        {
+            if(Random.Range(0, 100) <= lootItem.dropChance)
+            {
+                InstantiateLoot(lootItem.itemPrefab);
+            }
+            else
+            {
+                print("Nao dropou");
+            }
+        }
     }
 
-
+    void InstantiateLoot(GameObject loot)
+    {
+        if (loot)
+        {
+            GameObject droppedLoot = Instantiate(loot, transform.position, Quaternion.identity);
+        }
+    }
 }
 
