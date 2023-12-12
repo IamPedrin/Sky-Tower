@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+
+    AudioSource sliceAudioSource;
+
     Rigidbody2D _playerRb;
     Animator _playerAnimator;
     Animator _swordAnimator;
@@ -42,6 +45,7 @@ public class Player : MonoBehaviour
         _swordAnimator = GetComponent<Animator>();
         playerTr = GetComponent<TrailRenderer>();
 
+        sliceAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -104,6 +108,7 @@ public class Player : MonoBehaviour
     void OnFire(InputValue inputValue){
         if(inputValue.isPressed){
             // _swordAnimator.SetTrigger("swordAttack");
+            AudioSource.PlayClipAtPoint(sliceAudioSource.clip, transform.position);
             swordPivot.Attack();
             //gameObject.GetComponent<SwordPivot>().Attack();
             print("ATACOU");
