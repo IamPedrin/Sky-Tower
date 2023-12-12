@@ -24768,6 +24768,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 3124743719973201264, guid: 846ebe17ee672b74dbce0bfa981b1808, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3229003535733131759, guid: 846ebe17ee672b74dbce0bfa981b1808, type: 3}
       propertyPath: m_Name
       value: Sword
@@ -24799,6 +24803,14 @@ PrefabInstance:
     - target: {fileID: 6755049409509122389, guid: 846ebe17ee672b74dbce0bfa981b1808, type: 3}
       propertyPath: maxHealth
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6755049409509122389, guid: 846ebe17ee672b74dbce0bfa981b1808, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1357947358871549881}
+    - target: {fileID: 6755049409509122389, guid: 846ebe17ee672b74dbce0bfa981b1808, type: 3}
+      propertyPath: audioSource.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7294626638773649888, guid: 846ebe17ee672b74dbce0bfa981b1808, type: 3}
       propertyPath: m_TagString
@@ -24872,6 +24884,11 @@ PrefabInstance:
 --- !u!4 &1357947358871549880 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7632223227773392549, guid: 846ebe17ee672b74dbce0bfa981b1808, type: 3}
+  m_PrefabInstance: {fileID: 676133989610090951}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1357947358871549881 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3124743719973201264, guid: 846ebe17ee672b74dbce0bfa981b1808, type: 3}
   m_PrefabInstance: {fileID: 676133989610090951}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4014190723032346820

@@ -57,6 +57,11 @@ public class AudioManager : MonoBehaviour
             // Troque a música da cena
             ChangeSceneMusic(1);
         }
+        else if (scene.buildIndex == 3)
+        {
+            // Troque a música da cena
+            ChangeSceneMusic(2);
+        }
     }
 
     void OnSliderValueChanged()
