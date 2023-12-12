@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
-    //AudioSource damageTaken;
-    AudioSource death;
-
-
-
     [SerializeField] float velocidade = 3f;
     Rigidbody2D rb;
     Transform target;
@@ -33,8 +27,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;    
-        //damageTaken = GetComponent<AudioSource>();
-        death = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -63,6 +55,7 @@ public class Enemy : MonoBehaviour
         if (target)
         {
             rb.velocity = new Vector3(movDir.x, movDir.y) * velocidade;
+            
         }
     }
 
@@ -91,7 +84,6 @@ public class Enemy : MonoBehaviour
     }
 
     public void Pontuacao(){
-        AudioSource.PlayClipAtPoint(death.clip, transform.position);
         ponto.AtualizaPontuacao();
     }
 

@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scripts/AudioManager.cs.meta
-guid: d045de59adb9b8846a19b0032ea4c38d
-========
+<<<<<<<< HEAD:Assets/Scripts/HealthItem.cs.meta
 guid: b434eb77f03754643ac74d76c9353ecb
->>>>>>>> origin/pedrinBranch:Assets/Scripts/HealthItem.cs.meta
+========
+guid: 2462f08e5a98c3d4c830fcc020924f42
+>>>>>>>> origin/brenoBranch:Assets/Scripts/AudioManager.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
