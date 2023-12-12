@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] public int maxHealth = 3;
-    private int currentHealth;
+    public int currentHealth;
 
     public HealthUI healthUI;
     private SpriteRenderer sprite;
@@ -47,5 +47,15 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         sprite.color = Color.white;
         Physics2D.IgnoreLayerCollision(6, 8, false);
+    }
+
+    public void GainHealth()
+    {
+        // Verifica se a vida atual não ultrapassa o máximo antes de ganhar vida
+        if (currentHealth < maxHealth)
+        {
+            currentHealth++;
+            healthUI.UpdateHearts(currentHealth);
+        }
     }
 }
