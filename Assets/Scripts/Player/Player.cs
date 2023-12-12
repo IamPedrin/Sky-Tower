@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
     Rigidbody2D _playerRb;
     Animator _playerAnimator;
     Animator _swordAnimator;
-    TrailRenderer playerTr;
 
     Vector2 mov;
     Vector2 lastMov;
@@ -22,29 +21,17 @@ public class Player : MonoBehaviour
     //Chama o script do Pivo da Espada
     public SwordPivot swordPivot;
 
-    [Header("DASH")]
-    [SerializeField] float dashSpeed;
-    [SerializeField] float dashTime;
-    [SerializeField] float dashCooldown;
-
-
-    bool isDashing = false;
-    bool canDash = true;
-
     public static Player instance;
 
     private void Awake()
     {
         instance = this;
     }
-    // Start is called before the first frame update
     void Start()
     {
         _playerRb = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
         _swordAnimator = GetComponent<Animator>();
-        playerTr = GetComponent<TrailRenderer>();
-
         sliceAudioSource = GetComponent<AudioSource>();
     }
 
@@ -53,6 +40,7 @@ public class Player : MonoBehaviour
     {
 
         Movement();
+
     }
 
 
@@ -80,29 +68,6 @@ public class Player : MonoBehaviour
         _playerAnimator.SetFloat("LastVertical", lastMov.y);
         _playerAnimator.SetFloat("Speed", mov.magnitude);
 
-    }
-
-    IEnumerator PlayerDash()
-    {
-        canDash = false;
-        isDashing = true;
-        _playerRb.velocity = new Vector2(mov.x * dashSpeed, mov.y * dashSpeed);
-        playerTr.emitting = true;
-        Physics2D.IgnoreLayerCollision(6, 8, true);
-        yield return new WaitForSeconds(dashTime);
-        isDashing = false;
-        playerTr.emitting = false;
-        Physics2D.IgnoreLayerCollision(6, 8, false);
-        yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
-    }
-
-    void OnDash(InputValue inputValue)
-    {
-        if (inputValue.isPressed && canDash)
-        {
-            StartCoroutine(PlayerDash());
-        }
     }
 
     void OnFire(InputValue inputValue){
