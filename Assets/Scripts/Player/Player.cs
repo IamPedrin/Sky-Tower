@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.U2D;
 
 public class Player : MonoBehaviour
 {
@@ -91,12 +92,14 @@ public class Player : MonoBehaviour
         StartCoroutine(PlayerDeath());
     }
 
-    IEnumerator PlayerDeath(){
-        yield return new WaitForSecondsRealtime(0.3f);
-        // isDead = true;
+    IEnumerator PlayerDeath()
+    {
         GetComponent<PlayerInput>().enabled = false;
         _playerRb.velocity = Vector2.zero;
-        Physics2D.IgnoreLayerCollision(7,9,true);
+        yield return new WaitForSecondsRealtime(0.3f);
+        GetComponent<PlayerInput>().enabled = true;
+        _playerRb.velocity = Vector2.zero;
+        Physics2D.IgnoreLayerCollision(6, 8, false);
         SceneManager.LoadScene("GameOver");
     }
 
