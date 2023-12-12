@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  currentHealth: 0
   healthUI: {fileID: 0}
 --- !u!82 &3124743719973201264
 AudioSource:
@@ -246,7 +247,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e500c036349e0b1439642488d1c6e4b6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2ed6d7426e796144f9c05b22e3c5d6e4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
