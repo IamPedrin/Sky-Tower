@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+
+    //AudioSource damageTaken;
+    AudioSource death;
+
+
+
     [SerializeField] float velocidade = 3f;
     Rigidbody2D rb;
     Transform target;
@@ -25,6 +31,8 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;    
+        //damageTaken = GetComponent<AudioSource>();
+        death = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -53,7 +61,6 @@ public class Enemy : MonoBehaviour
         if (target)
         {
             rb.velocity = new Vector3(movDir.x, movDir.y) * velocidade;
-            
         }
     }
 
@@ -66,37 +73,14 @@ public class Enemy : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collider){
         if(collider.gameObject.CompareTag("Sword")){
-            print("ARROBA PONTO COM");
+            //AudioSource.PlayClipAtPoint(damageTaken.clip, transform.position);
             gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
         }
     }
 
     public void Pontuacao(){
+        AudioSource.PlayClipAtPoint(death.clip, transform.position);
         ponto.AtualizaPontuacao();
     }
-
-
-    // public void TomarDano(){
-    //     StartCoroutine(IEEnemyDMG());
-    // }
-
-    // IEnumerator IEEnemyDMG(){
-    //     print("CHAMOU A COROTINA");
-
-
-    //     isTakingDamage = true;
-        
-    //     // rb.velocity = new Vector3(-transform.localScale.x*6, 13.0f, 1);
-    //     rb.velocity = new Vector3(-transform.localScale.x*6, 100, 1);
-    //     yield return new WaitForSecondsRealtime(10.1f);
-
-    //     isTakingDamage = false;
-    // }
-
-    // public void Destroy(){
-    //     //GameObject poofClone = Instantiate(poofVFXPrefab,transform.position,Quaternion.identity);
-    //     //Destroy(poofClone,1.5f);
-    //     Destroy(gameObject);
-    // }
 
 }

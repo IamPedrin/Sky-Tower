@@ -15,8 +15,6 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        // healthUI.SetMaxHearts(maxHealth);
-        // sprite = GetComponent<SpriteRenderer>();
     }
 
 
@@ -37,13 +35,6 @@ public class EnemyHealth : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // private IEnumerator flashRed()
-    // {
-    //     sprite.color = Color.red;
-    //     Physics2D.IgnoreLayerCollision(6, 8, true);
-    //     yield return new WaitForSeconds(0.8f);
-    //     sprite.color = Color.white;
-    //     Physics2D.IgnoreLayerCollision(6, 8, false);
-    // }
+
 }
 
