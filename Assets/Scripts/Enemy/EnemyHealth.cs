@@ -48,5 +48,7 @@ public class EnemyHealth : MonoBehaviour
             GameObject droppedLoot = Instantiate(loot, transform.position, Quaternion.identity);
         }
     }
+
+
 }
 

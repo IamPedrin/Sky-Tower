@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
 
     bool isTakingDamage;
 
+    public int ptns = 0;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -85,7 +87,10 @@ public class Enemy : MonoBehaviour
 
     public void Pontuacao(){
         ponto.AtualizaPontuacao();
+        ptns++;
+        GameSessions.Instance.PontuacaoFinal = ptns;
     }
+
 
 
 }

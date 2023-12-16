@@ -8,6 +8,8 @@ public class PointsUI : MonoBehaviour
     // Start is called before the first frame update
     TextMeshProUGUI textPontuacao;
 
+    public int ptns; 
+
     void Start()
     {
         textPontuacao = GetComponent<TextMeshProUGUI>();
@@ -18,6 +20,11 @@ public class PointsUI : MonoBehaviour
         pontuacaoAtual += pontuacao;
         textPontuacao.text = pontuacaoAtual.ToString();
     }
+
+
+    // public void Pontuacao(){
+    //     GameSessions.Instance.PontuacaoFinal = pontuacaoAtual;
+    // }
 
     // AtualizaPontuacao();
 
